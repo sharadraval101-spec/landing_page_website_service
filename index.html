@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Landing Page</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- 1. Hero Section (Left Text, Right Form) -->
+    <section id="hero" class="section hero-bg">
+        <div class="container hero-container">
+            <div class="hero-left">
+                <h1>We Build <span class="gradient-text">Modern Websites</span> For Your Business</h1>
+                <p>Professional website development company helping bussinesses grow online wih modern and responsive
+                    websites.</p>
+            </div>
+            <div class="hero-right">
+                <form class="lead-form" id="leadForm">
+                    <h3>contat us</h3>
+                    <div class="form-group">
+                        <input type="text" id="nameInput" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="emailInput" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phoneInput" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="serviceInput" required>
+                            <option value="" disabled selected>Select a Service</option>
+                            <option value="web">Website Type</option>
+                            <option value="bussiness">Bussiness Website</option>
+                            <option value="Ecommerce">Ecommerce Websites</option>
+                            <option value="Portfolio">Portfolio Websites</option>
+                            <option value="CRM">CRM Websites</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                    <p class="form-message" id="formMessage"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About/Video Section (Left Video, Right Text) -->
+    <section id="about" class="section about-bg">
+        <div class="container split-container">
+            <div class="split-left">
+                <div class="video-placeholder" id="videoPlayBtn">
+                    <div class="play-button">▶</div>
+                    <p>Watch Our Story</p>
+                </div>
+            </div>
+            <div class="split-right">
+                <h2>Why We Stand Out</h2>
+                <p>We believe in delivering top-notch experiences. Our team of experts works tirelessly to ensure your
+                    brand reaches its full potential through innovative strategies and state-of-the-art technology.</p>
+                <ul class="feature-list">
+                    <li>✔️ 24/7 Customer Support</li>
+                    <li>✔️ Custom Tailored Solutions</li>
+                    <li>✔️ Proven Track Record</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Features Section -->
+    <section id="features" class="section features-bg">
+        <div class="container text-center">
+            <h2>Our Core Features</h2>
+            <p class="section-subtitle">Everything you need to manage and grow your business seamlessly.</p>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="icon">🚀</div>
+                    <h3>Fast Performance</h3>
+                    <p>Experience blazing fast load times and optimized workflows that save you time.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔒</div>
+                    <h3>Top Tier Security</h3>
+                    <p>Your data is protected with industry-leading encryption and security protocols.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">📈</div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Make data-driven decisions with our comprehensive dashboards and reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Testimonials Section -->
+    <section id="testimonials" class="section testimonials-bg">
+        <div class="container text-center">
+            <h2>What Our Clients Say</h2>
+            <p class="section-subtitle">Don't just take our word for it. Hear from our successful partners.</p>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <p class="quote">"This service completely transformed our business. We saw a 300% increase in leads
+                        within the first month!"</p>
+                    <div class="author">
+                        <img class="avatar"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                            alt="Sarah Jenkins">
+                        <div>
+                            <h4>Sarah Jenkins</h4>
+                            <span>CEO, TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Absolutely incredible team to work with. They understood our vision and executed
+                        it flawlessly."</p>
+                    <div class="author">
+                        <img class="avatar"
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                            alt="Michael Ross">
+                        <div>
+                            <h4>Michael Ross</h4>
+                            <span>Founder, StartUp Inc</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"The best investment we've made this year. Highly recommended for any growing
+                        business."</p>
+                    <div class="author">
+                        <img class="avatar"
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80"
+                            alt="Emily Chen">
+                        <div>
+                            <h4>Emily Chen</h4>
+                            <span>Marketing Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Our Team Section -->
+    <section id="team" class="section team-bg">
+        <div class="container text-center">
+            <h2>Meet Our Expert Team</h2>
+            <p class="section-subtitle">Passionate professionals dedicated to bringing your vision to life.</p>
+            <div class="grid-3">
+                <div class="team-card">
+                    <div class="team-image img-1"></div>
+                    <div class="team-info">
+                        <h3>Alexandra Smith</h3>
+                        <p class="team-role">Creative Director</p>
+                        <div class="team-socials">
+                            <a href="#">LinkedIn</a>
+                            <a href="#">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image img-2"></div>
+                    <div class="team-info">
+                        <h3>James Wilson</h3>
+                        <p class="team-role">Lead Developer</p>
+                        <div class="team-socials">
+                            <a href="#">LinkedIn</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image img-3"></div>
+                    <div class="team-info">
+                        <h3>Sophia Chen</h3>
+                        <p class="team-role">Marketing Head</p>
+                        <div class="team-socials">
+                            <a href="#">LinkedIn</a>
+                            <a href="#">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FAQ Section -->
+    <section id="faq" class="section faq-bg">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Got questions? We've got answers.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">What is your cancellation policy? <span class="icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>You can cancel your subscription at any time without any hidden fees. Your data will be
+                            safely stored for 30 days.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you offer a free trial? <span class="icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a 14-day free trial on all our plans so you can test out our features before
+                            committing.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How does the onboarding process work? <span
+                            class="icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Once you sign up, our dedicated team will reach out to schedule a quick kick-off call to get
+                            your account set up within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer Section -->
+    <footer class="footer-bg section">
+        <div class="container text-center">
+            <h2>Ready to get started?</h2>
+            <p>Join us today and take your business to the next level.</p>
+            <button class="btn btn-primary" style="margin-top: 1.5rem;">Get Started Now</button>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Your Brand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
