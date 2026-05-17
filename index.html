@@ -195,11 +195,14 @@
 
                 <div class="service-grid">
                     <article class="glass-card service-card reveal">
-                        <div class="service-media media-one" aria-hidden="true">
+                        <div class="service-media media-one" role="button" tabindex="0"
+                            aria-label="Open brand website design video in fullscreen"
+                            data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                            data-video-title="Brand Website Design Preview">
                             <span class="media-tag">01</span>
-                            <button class="media-play" type="button" aria-label="Preview brand website service">
+                            <span class="media-play" aria-hidden="true">
                                 <svg aria-hidden="true"><use href="#icon-play"></use></svg>
-                            </button>
+                            </span>
                             <span class="media-caption">Brand systems and landing pages</span>
                         </div>
                         <div class="service-body">
@@ -210,11 +213,14 @@
                     </article>
 
                     <article class="glass-card service-card reveal">
-                        <div class="service-media media-two" aria-hidden="true">
+                        <div class="service-media media-two" role="button" tabindex="0"
+                            aria-label="Open front-end development video in fullscreen"
+                            data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                            data-video-title="Front-End Development Preview">
                             <span class="media-tag">02</span>
-                            <button class="media-play" type="button" aria-label="Preview development service">
+                            <span class="media-play" aria-hidden="true">
                                 <svg aria-hidden="true"><use href="#icon-play"></use></svg>
-                            </button>
+                            </span>
                             <span class="media-caption">Fast, scalable front-end builds</span>
                         </div>
                         <div class="service-body">
@@ -225,11 +231,14 @@
                     </article>
 
                     <article class="glass-card service-card reveal">
-                        <div class="service-media media-three" aria-hidden="true">
+                        <div class="service-media media-three" role="button" tabindex="0"
+                            aria-label="Open conversion optimization video in fullscreen"
+                            data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                            data-video-title="Conversion Optimization Preview">
                             <span class="media-tag">03</span>
-                            <button class="media-play" type="button" aria-label="Preview growth optimization service">
+                            <span class="media-play" aria-hidden="true">
                                 <svg aria-hidden="true"><use href="#icon-play"></use></svg>
-                            </button>
+                            </span>
                             <span class="media-caption">Optimization and growth systems</span>
                         </div>
                         <div class="service-body">
@@ -247,10 +256,13 @@
             <div class="container portfolio-grid">
                 <div class="portfolio-visual reveal">
                     <div class="glass-card portfolio-video">
-                        <div class="portfolio-frame" aria-hidden="true">
-                            <button class="media-play media-play-large" type="button" aria-label="Preview portfolio showcase">
+                        <div class="portfolio-frame" role="button" tabindex="0"
+                            aria-label="Open portfolio showcase video in fullscreen"
+                            data-video-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                            data-video-title="Portfolio Showcase Preview">
+                            <span class="media-play media-play-large" aria-hidden="true">
                                 <svg aria-hidden="true"><use href="#icon-play"></use></svg>
-                            </button>
+                            </span>
                             <div class="portfolio-chip chip-top">Case study demo</div>
                             <div class="portfolio-chip chip-bottom">Live analytics</div>
                             <div class="portfolio-float float-one">
@@ -463,7 +475,7 @@
 
         <!-- FAQ Section -->
         <section class="section-pad section-alt" id="faq">
-            <div class="container faq-layout">
+            <div class="container">
                 <div class="section-heading reveal">
                     <span class="eyebrow">FAQ</span>
                     <h2>Frequently asked questions.</h2>
@@ -588,6 +600,23 @@
     <button class="scroll-top" type="button" aria-label="Scroll to top">
         <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
     </button>
+
+    <div class="video-modal" data-video-modal aria-hidden="true">
+        <div class="video-modal__backdrop" data-close-video></div>
+        <div class="video-modal__dialog glass-card" role="dialog" aria-modal="true" aria-label="Fullscreen video preview">
+            <button class="video-modal__close" type="button" data-close-video aria-label="Close video preview">
+                <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+            </button>
+            <div class="video-modal__media">
+                <video class="video-modal__video" data-video-player controls playsinline preload="metadata"></video>
+            </div>
+            <div class="video-modal__caption">
+                <span class="eyebrow">Fullscreen preview</span>
+                <h3 data-video-title>Video Preview</h3>
+                <p>Press Escape or click outside the frame to close.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js" defer></script>
 </body>

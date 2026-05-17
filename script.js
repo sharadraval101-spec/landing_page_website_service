@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const navCta = document.querySelector(".nav-cta");
     const scrollTopButton = document.querySelector(".scroll-top");
     const demoButton = document.querySelector("[data-scroll-target]");
+    const videoModal = document.querySelector("[data-video-modal]");
+    const videoPlayer = document.querySelector("[data-video-player]");
+    const videoTitle = document.querySelector("[data-video-title]");
+    const videoTriggers = document.querySelectorAll("[data-video-src]");
     const leadForm = document.getElementById("leadForm");
     const formMessage = document.getElementById("formMessage");
     const fields = document.querySelectorAll(".field");
@@ -19,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
        Helpers
        ========================================= */
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let lastVideoTrigger = null;
 
     const setHeaderState = () => {
         if (!header) {
@@ -99,6 +104,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
         formMessage.textContent = "";
         formMessage.classList.remove("success", "error", "is-visible");
+    };
+
+    const closeVideoModal = async ({ exitFullscreen = true } = {}) => {
+        if (!videoModal || !videoPlayer) {
+            return;
+        }
+
+        videoModal.classList.remove("is-open");
+        videoModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-lock");
+
+        videoPlayer.pause();
+        videoPlayer.removeAttribute("src");
+        videoPlayer.load();
+
+        if (exitFullscreen && document.fullscreenElement) {
+            try {
+                await document.exitFullscreen();
+            } catch {
+                // Ignore fullscreen exit failures and keep the overlay state clean.
+            }
+        }
+
+        if (lastVideoTrigger instanceof HTMLElement) {
+            lastVideoTrigger.focus();
+        }
+
+        lastVideoTrigger = null;
+    };
+
+    const openVideoModal = async (trigger) => {
+        if (!videoModal || !videoPlayer || !videoTitle) {
+            return;
+        }
+
+        const source = trigger?.dataset?.videoSrc;
+        if (!source) {
+            return;
+        }
+
+        closeMenu();
+        const title = trigger.dataset.videoTitle || "Video Preview";
+        lastVideoTrigger = trigger instanceof HTMLElement ? trigger : null;
+
+        videoTitle.textContent = title;
+        videoPlayer.src = source;
+        videoModal.classList.add("is-open");
+        videoModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-lock");
+        videoPlayer.load();
+
+        if (videoModal.requestFullscreen) {
+            try {
+                await videoModal.requestFullscreen();
+            } catch {
+                // Fullscreen is a progressive enhancement. The overlay still fills the viewport.
+            }
+        }
+
+        try {
+            await videoPlayer.play();
+        } catch {
+            // Browsers may require explicit playback, so leave controls visible.
+        }
+
+        const closeButton = videoModal.querySelector(".video-modal__close");
+        closeButton?.focus();
     };
 
     const animateCounter = (element) => {
@@ -196,6 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+            if (videoModal?.classList.contains("is-open")) {
+                closeVideoModal({ exitFullscreen: true });
+            }
+
             closeMenu();
         }
     });
@@ -220,6 +296,37 @@ document.addEventListener("DOMContentLoaded", () => {
             top: 0,
             behavior: prefersReducedMotion ? "auto" : "smooth"
         });
+    });
+
+    videoTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+            openVideoModal(trigger);
+        });
+
+        trigger.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openVideoModal(trigger);
+            }
+        });
+    });
+
+    videoModal?.addEventListener("click", (event) => {
+        const target = event.target;
+
+        if (!(target instanceof HTMLElement)) {
+            return;
+        }
+
+        if (target.matches("[data-close-video]")) {
+            closeVideoModal({ exitFullscreen: true });
+        }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+        if (videoModal?.classList.contains("is-open") && !document.fullscreenElement) {
+            closeVideoModal({ exitFullscreen: false });
+        }
     });
 
     /* =========================================
